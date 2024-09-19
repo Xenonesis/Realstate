@@ -1,0 +1,525 @@
+/* Dark mode styles */
+.dark-mode {
+    background-color: #1e293b; /* Dark background */
+    color: #1e73c7; /* Light text */
+}
+
+/* Smooth transition for dark mode */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+    border: 2px solid #ccc; /* Light border for light mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0); /* Gradient background */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.dark-mode .dark-mode-toggle {
+    border: 2px solid #444; /* Darker border for dark mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    background: linear-gradient(135deg, #333, #222); /* Dark gradient background */
+}
+
+.dark-mode-toggle i {
+    font-size: 1.5rem; /* Adjust icon size */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth icon transition */
+}
+
+/* Optional: Add a hover effect for the icon */
+.dark-mode-toggle:hover i {
+    transform: rotate(20deg); /* Slight rotation on hover */
+}
+
+/* Trending Properties section */
+.dark-mode .trending-properties {
+    background-color: #1f2937; /* Dark background for the section */
+    color: #e5e7eb; /* Light text color */
+    padding: 2rem 1rem; /* Added padding for better spacing */
+}
+
+.dark-mode .trending-properties h2 {
+    color: #e5e7eb; /* Light color for headers in dark mode */
+}
+
+.dark-mode .trending-properties .property-item {
+    background-color: #2d3748; /* Dark background for property items */
+    color: #e5e7eb; /* Light text color */
+    border: 1px solid #374151; /* Dark border for items */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+}
+
+.dark-mode .trending-properties .property-item:hover {
+    background-color: #374151; /* Slightly lighter dark color on hover */
+    border-color: #60a5fa; /* Accent color on hover */
+}
+
+/* Property card styles */
+.property-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.property-card:hover {
+    transform: scale(1.05);
+}
+
+.property-card img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.property-card:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Hero Section styles */
+.hero-section {
+    background: url('hero-bg.jpg') no-repeat center center/cover; /* Engaging background image */
+    color: #fff;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.animate-delay-300 {
+    animation-delay: 300ms;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Light gradient background */
+    border-bottom: 1px solid #e5e7eb; /* Light border */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for elevation */
+    z-index: 1000; /* Ensure it sits above other content */
+    padding: 0.75rem 1.5rem; /* Increased padding */
+    border-radius: 1.5rem; /* Rounded corners */
+}
+
+/* Dark Mode Navbar */
+.dark-mode .navbar {
+    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Lighter gradient background */
+    border-bottom: 1px solid #e5e7eb; /* Light border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lighter shadow */
+    color: #f1f5f9; /* Light text color */
+}
+
+
+/* Logo Styles */
+.logo {
+    transition: transform 0.3s ease;
+    font-size: 2rem; /* Larger font size */
+    color: inherit; /* Inherit color from navbar */
+}
+
+/* Navigation Links */
+.nav-link {
+    font-size: 1.25rem; /* Larger font size */
+    color: #333;
+    text-decoration: none;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #58a6ff; /* Accent color */
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #58a6ff; /* Accent color on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.nav-link:hover::after {
+    width: 100%; /* Full underline effect */
+}
+
+/* Fixed Buttons */
+.fixed-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.fixed-buttons button {
+    background-color: #374151; /* Dark background for buttons */
+    color: #f1f5f9; /* Light icon color */
+    border-radius: 50%;
+    padding: 0.75rem; /* Increased button padding */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.25rem; /* Larger font size */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.fixed-buttons button:hover {
+    background-color: #4b5563; /* Darker background on hover */
+    color: #58a6ff; /* Accent color on hover */
+    transform: scale(1.1); /* Slight scale effect on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+    }
+    
+    .navbar-toggle {
+        display: flex;
+    }
+    
+    .fixed-buttons {
+        display: none;
+    }
+
+    .mobile-menu.active {
+        transform: translateX(0);
+    }
+}
+
+.new-projects {
+    padding: 2rem 1rem; /* Padding for the section */
+    background-color: #f9fafb; /* Light background color */
+    text-align: center; /* Center-align text */
+}
+
+.new-projects h2 {
+    font-size: 2rem; /* Font size for the section title */
+    color: #333; /* Dark color for better readability */
+    margin-bottom: 1rem; /* Space below the title */
+}
+
+.slider {
+    position: relative; /* For positioning slide container */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition for slide effect */
+}
+
+.slide {
+    min-width: 100%; /* Each slide takes full width */
+    box-sizing: border-box; /* Include padding and border in width */
+    padding: 1rem; /* Padding for each slide */
+    background: #e5e7eb; /* Light background for slides */
+    color: #333; /* Dark text color for contrast */
+    font-size: 1rem; /* Font size for slide content */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+/* Optional: Add navigation dots */
+.slider-nav {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.slider-nav button {
+    background-color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-nav button.active {
+    background-color: #60a5fa;
+}
+
+/* Property Card Styling */
+.property-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out; /* Smooth zoom effect */
+}
+
+.property-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Smooth scale effect */
+}
+
+.property-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.property-card:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.property-card .contact-owner-btn, 
+.property-card .add-to-favorites-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+/* New Projects Section */
+.new-projects {
+    padding: 2rem 1rem; /* Padding for the section */
+    background-color: #f9fafb; /* Light background color */
+    text-align: center; /* Center-align text */
+}
+
+.new-projects h2 {
+    font-size: 2rem; /* Font size for the section title */
+    color: #333; /* Dark color for better readability */
+    margin-bottom: 1rem; /* Space below the title */
+}
+
+.new-projects .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for slide effect */
+}
+
+.new-projects .slide {
+    min-width: 100%; /* Each slide takes full width */
+    box-sizing: border-box; /* Include padding and border in width */
+    padding: 1rem; /* Padding for each slide */
+    background: #e5e7eb; /* Light background for slides */
+    color: #333; /* Dark text color for contrast */
+    font-size: 1rem; /* Font size for slide content */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+/* Buttons Styling */
+#prev-slide, #next-slide {
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+/* Dark Mode Adjustments */
+.dark-mode {
+    background-color: #1e293b; /* Dark background */
+    color: #1e73c7; /* Light text */
+}
+
+.dark-mode .property-card {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .trending-properties {
+    background-color: #1f2937; /* Dark background for the section */
+    color: #e5e7eb; /* Light text color */
+    padding: 2rem 1rem; /* Added padding for better spacing */
+}
+
+.dark-mode .trending-properties h2 {
+    color: #e5e7eb; /* Light color for headers in dark mode */
+}
+
+.dark-mode .trending-properties .property-item {
+    background-color: #2d3748; /* Dark background for property items */
+    color: #e5e7eb; /* Light text color */
+    border: 1px solid #374151; /* Dark border for items */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+}
+
+.dark-mode .trending-properties .property-item:hover {
+    background-color: #374151; /* Slightly lighter dark color on hover */
+    border-color: #60a5fa; /* Accent color on hover */
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+    border: 2px solid #ccc; /* Light border for light mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0); /* Gradient background */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.dark-mode .dark-mode-toggle {
+    border: 2px solid #444; /* Darker border for dark mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    background: linear-gradient(135deg, #333, #222); /* Dark gradient background */
+}
+
+.dark-mode-toggle i {
+    font-size: 1.5rem; /* Adjust icon size */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth icon transition */
+}
+
+/* Optional: Add a hover effect for the icon */
+.dark-mode-toggle:hover i {
+    transform: rotate(20deg); /* Slight rotation on hover */
+}
+
+/* Footer styles */
+/* Enhanced Footer Styles */
+.footer {
+    background-color: #1f2937; /* Dark background for the footer */
+    color: #f1f5f9; /* Light text color */
+    padding: 2rem 1rem; /* Added padding for better spacing */
+    text-align: center; /* Center-align text for better aesthetics */
+    border-top: 2px solid #374151; /* Top border to define footer edge */
+}
+
+/* Section Headers */
+.footer h4 {
+    font-size: 1.5rem; /* Increased font size for better visibility */
+    font-weight: 700; /* Bold section headers for emphasis */
+    margin-bottom: 1.5rem; /* Increased space below section headers */
+    color: #e5e7eb; /* Light color for better readability */
+}
+
+/* Paragraphs */
+.footer p {
+    margin-bottom: 1rem; /* Space below paragraphs */
+    line-height: 1.8; /* Better readability with increased line height */
+}
+
+/* Lists */
+.footer ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.footer ul li {
+    margin-bottom: 0.75rem; /* Increased space between list items */
+}
+
+/* Links */
+.footer a {
+    color: #e5e7eb; /* Light color for better contrast */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transitions */
+}
+
+.footer a:hover {
+    color: #60a5fa; /* Accent color for hover effect */
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Container */
+.footer .container {
+    max-width: 1200px; /* Set maximum width for the container */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Grid Layout */
+.footer .grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 2rem; /* Increased space between grid items */
+}
+
+@media (min-width: 768px) {
+    .footer .grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns on medium screens and up */
+    }
+}
+
+/* Text Center Section */
+.footer .text-center {
+    margin-top: 2rem; /* Space above the centered text */
+    border-top: 1px solid #374151; /* Top border for separation */
+    padding-top: 1rem; /* Space above the text */
+    font-size: 0.875rem; /* Smaller font size for additional text */
+    color: #e5e7eb; /* Light color for additional text */
+}
+
+/* Footer Legal */
+.footer-legal {
+    font-size: 0.875rem; /* Smaller font size */
+    color: #e5e7eb; /* Light color for legal text */
+}
+
+.footer-legal a {
+    color: #60a5fa; /* Accent color for links */
+}
+
+.footer-legal a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Footer Button Styles */
+.footer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; /* Size of the buttons */
+    height: 48px;
+    background-color: #374151; /* Darker background for buttons */
+    color: #f1f5f9; /* Light icon color */
+    border-radius: 50%; /* Circular buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    margin: 0 0.5rem; /* Space between buttons */
+}
+
+.footer-btn:hover {
+    background-color: #4b5563; /* Darker background on hover */
+    color: #60a5fa; /* Accent color on hover */
+}
+
+.footer-btn i {
+    font-size: 1.5rem; /* Size of the icons */
+}
+
+/* Flex container for buttons */
+.footer .social-buttons {
+    margin-top: 1rem; /* Space above the social buttons */
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Space between buttons */
+}
