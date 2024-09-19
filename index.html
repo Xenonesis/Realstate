@@ -84,6 +84,24 @@
             font-size: 1.25rem;
         }
 
+        @keyframes fadeInUp {
+        from {
+        opacity: 0;
+        transform: translateY(20px);
+         }
+        to {
+        opacity: 1;
+        transform: translateY(0);
+        }
+        }
+
+       .animate-fadeInUp {
+        animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+       .animate-delay-300 {
+       animation-delay: 300ms;
+       }
         /* Navbar styles */
         .navbar {
             position: sticky;
@@ -266,54 +284,56 @@
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo -->
             <div class="logo text-2xl font-bold text-gray-800 dark:text-white">
-                <img src="logo.png" alt="RealEstatePlus Logo" class="w-28">
+                <img src="logo.png" alt="RealEstatePlus Logo" class="w-28" loading="lazy">
             </div>
     
             <!-- Navigation -->
             <nav class="hidden md:flex space-x-8">
-                <a href="#buy" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Buy</a>
-                <a href="#rent" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Rent</a>
-                <a href="#sell" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Sell</a>
-                <a href="#projects" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Projects</a>
-                <a href="#contact" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Contact</a>
+                <a href="#buy" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300" aria-label="Buy">Buy</a>
+                <a href="#rent" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300" aria-label="Rent">Rent</a>
+                <a href="#sell" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300" aria-label="Sell">Sell</a>
+                <a href="#projects" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300" aria-label="Projects">Projects</a>
+                <a href="#contact" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300" aria-label="Contact">Contact</a>
             </nav>
     
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden p-2 rounded-full focus:outline-none">
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-full focus:outline-none" aria-label="Open mobile menu">
                 <i class="fas fa-bars text-gray-800 dark:text-gray-300"></i>
             </button>
     
             <!-- Dark Mode Toggle -->
-            <button id="dark-mode-toggle" class="dark-mode-toggle p-2 rounded-full bg-gray-200 dark:bg-gray-600 transition-transform duration-300 hover:scale-110 flex items-center justify-center">
+            <button id="dark-mode-toggle" class="dark-mode-toggle p-2 rounded-full bg-gray-200 dark:bg-gray-600 transition-transform duration-300 hover:scale-110 flex items-center justify-center" aria-label="Toggle dark mode">
                 <i id="dark-mode-icon" class="fas fa-sun text-yellow-500 dark:text-gray-300"></i>
             </button>
         </div>
     
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-800 transform -translate-y-full transition-transform duration-300 md:hidden">
+        <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-800 transform -translate-x-full transition-transform duration-300 md:hidden">
             <nav class="flex flex-col p-4 space-y-4">
-                <a href="#buy" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Buy</a>
-                <a href="#rent" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Rent</a>
-                <a href="#sell" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Sell</a>
-                <a href="#projects" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Projects</a>
-                <a href="#contact" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Contact</a>
+                <a href="#buy" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300" aria-label="Buy">Buy</a>
+                <a href="#rent" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300" aria-label="Rent">Rent</a>
+                <a href="#sell" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300" aria-label="Sell">Sell</a>
+                <a href="#projects" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300" aria-label="Projects">Projects</a>
+                <a href="#contact" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300" aria-label="Contact">Contact</a>
             </nav>
         </div>
     </header>
     
-
     <!-- Hero Section -->
-    <section class="hero-section h-96 flex items-center justify-center text-center relative">
-        <div class="hero-overlay absolute inset-0"></div>
-        <div class="container mx-auto text-center z-10 hero-text">
-            <h1>Find Your Dream Home Today</h1>
-            <p class="mt-2">Explore the best properties near you</p>
-            <div class="mt-6">
-                <input type="text" placeholder="Search properties..." class="px-4 py-2 w-96 rounded-md">
-                <button class="bg-blue-500 text-white px-6 py-2 rounded-md ml-2">Search</button>
+    <section class="hero-section h-screen flex items-center justify-center relative bg-cover bg-center transition-all duration-1000 ease-in-out transform hover:scale-105" style="background-image: url('your-hero-image.jpg');">
+        <div class="hero-overlay absolute inset-0 bg-black bg-opacity-50 transition-opacity duration-1000 ease-in-out hover:bg-opacity-70"></div>
+        <div class="container mx-auto text-center relative z-10 hero-text">
+            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight opacity-0 translate-y-8 animate-fadeInUp">Find Your Dream Home Today</h1>
+            <p class="mt-4 text-lg md:text-2xl text-gray-200 opacity-0 translate-y-8 animate-fadeInUp animate-delay-300">Explore the best properties near you</p>
+            <div class="mt-8 flex justify-center space-x-2">
+                <input type="text" placeholder="Search properties..." class="px-6 py-3 w-80 md:w-96 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-r-md transition-all duration-300 ease-in-out shadow-lg transform hover:scale-105">Search</button>
             </div>
         </div>
     </section>
+    
+
+    
 
     <!-- Featured Properties -->
 <section class="container mx-auto px-4 py-12">
@@ -419,9 +439,9 @@
             </div>
             <div>
                 <h4 class="text-xl font-semibold mb-4">Contact Us</h4>
-                <p class="text-gray-400">123 Main Street, Anytown, USA</p>
+                <p class="text-gray-400">JhumriTaliyaa,Jharkhand</p>
                 <p class="text-gray-400">Email: <a href="mailto:info@realestateplus.com" class="hover:text-blue-400 transition-colors duration-300">info@realestateplus.com</a></p>
-                <p class="text-gray-400">Phone: (123) 456-7890</p>
+                <p class="text-gray-400">Phone: (91) 456-7890</p>
             </div>
         </div>
         <div class="text-center mt-8 border-t border-gray-700 pt-4">
