@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore real estate properties, buy, rent or sell homes with ease. Find your dream home with RealEstatePlus.">
+    <title>Real Estate Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+    <style>
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #1e293b; /* Dark background */
+            color: #f1f5f9; /* Light text */
+        }
+
+        /* Smooth transition for dark mode */
+        body {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Property card styles with dark mode */
+        /* Dark mode toggle button */
+.dark-mode-toggle {
+    border: 2px solid #ccc; /* Light border for light mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0); /* Gradient background */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.dark-mode .dark-mode-toggle {
+    border: 2px solid #444; /* Darker border for dark mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    background: linear-gradient(135deg, #333, #222); /* Dark gradient background */
+}
+
+.dark-mode-toggle i {
+    font-size: 1.5rem; /* Adjust icon size */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth icon transition */
+}
+
+/* Optional: Add a hover effect for the icon */
+.dark-mode-toggle:hover i {
+    transform: rotate(20deg); /* Slight rotation on hover */
+}
+
+
+        /* Custom styles for the Trending Properties section */
+        .property-card:hover {
+            transform: translateY(-5px); /* Add a lift on hover */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow effect */
+        }
+
+        .property-card img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .property-card:hover img {
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+        /* Hero Section styles */
+        .hero-section {
+            background: url('hero-bg.jpg') no-repeat center center/cover; /* Engaging background image */
+            color: #fff;
+        }
+
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-dark {
+            background-color: #1f2937; /* Dark background */
+        }
+
+        .navbar .nav-item:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styles */
+/* Footer styles */
+.footer {
+    background-color: #1f2937; /* Dark background for the footer */
+    color: #f1f5f9; /* Light text color */
+    padding: 2rem 1rem; /* Added padding for better spacing */
+    text-align: center; /* Center-align text for better aesthetics */
+}
+
+.footer h4 {
+    font-size: 1.25rem; /* Slightly larger font size for section headers */
+    font-weight: 600; /* Bold section headers */
+    margin-bottom: 1rem; /* Space below section headers */
+}
+
+.footer p {
+    margin-bottom: 1rem; /* Space below paragraphs */
+    line-height: 1.6; /* Better readability */
+}
+
+.footer ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem; /* Space between list items */
+}
+
+.footer a {
+    color: #f1f5f9; /* Default link color */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.footer a:hover {
+    color: #60a5fa; /* Lighter link color on hover */
+}
+
+.footer .container {
+    max-width: 1200px; /* Set maximum width for the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.footer .grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on small screens */
+    gap: 1.5rem; /* Space between grid items */
+}
+
+@media (min-width: 768px) {
+    .footer .grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns on medium screens and up */
+    }
+}
+
+.footer .text-center {
+    margin-top: 2rem; /* Space above the centered text */
+    border-top: 1px solid #374151; /* Top border for separation */
+    padding-top: 1rem; /* Space above the text */
+}
+
+/* Footer Button Styles */
+.footer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; /* Size of the buttons */
+    height: 48px;
+    background-color: #374151; /* Button background color */
+    color: #f1f5f9; /* Icon color */
+    border-radius: 50%; /* Circular buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    margin: 0 0.5rem; /* Space between buttons */
+}
+
+.footer-btn:hover {
+    background-color: #4b5563; /* Darker background on hover */
+    color: #60a5fa; /* Lighter icon color on hover */
+}
+
+.footer-btn i {
+    font-size: 1.5rem; /* Size of the icons */
+}
+
+/* Flex container for buttons */
+.footer .social-buttons {
+    margin-top: 1rem; /* Space above the social buttons */
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Space between buttons */
+}
+
+.property-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.property-card:hover {
+    transform: scale(1.05);
+}
+
+.property-card .buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.property-card:hover .buttons {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.property-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.property-card button:hover {
+    background-color: #0056b3;
+}
+
+.icon-overlay {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .icon-overlay.show {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .view-details {
+        cursor: pointer;
+    }
+
+    .property-card:hover .icon-overlay {
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+
+    </style>
+</head>
+<body class="font-poppins">
+
+    <header class="navbar fixed top-0 left-0 w-full bg-white shadow-lg z-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="logo text-2xl font-bold text-gray-800 dark:text-white">
+                <img src="logo.png" alt="RealEstatePlus Logo" class="w-28">
+            </div>
+    
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#buy" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Buy</a>
+                <a href="#rent" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Rent</a>
+                <a href="#sell" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Sell</a>
+                <a href="#projects" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="nav-item text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Contact</a>
+            </nav>
+    
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-full focus:outline-none">
+                <i class="fas fa-bars text-gray-800 dark:text-gray-300"></i>
+            </button>
+    
+            <!-- Dark Mode Toggle -->
+            <button id="dark-mode-toggle" class="dark-mode-toggle p-2 rounded-full bg-gray-200 dark:bg-gray-600 transition-transform duration-300 hover:scale-110 flex items-center justify-center">
+                <i id="dark-mode-icon" class="fas fa-sun text-yellow-500 dark:text-gray-300"></i>
+            </button>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-800 transform -translate-y-full transition-transform duration-300 md:hidden">
+            <nav class="flex flex-col p-4 space-y-4">
+                <a href="#buy" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Buy</a>
+                <a href="#rent" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Rent</a>
+                <a href="#sell" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Sell</a>
+                <a href="#projects" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Projects</a>
+                <a href="#contact" class="text-gray-800 dark:text-gray-300 hover:text-blue-600 transition-colors duration-300">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+
+    <!-- Hero Section -->
+    <section class="hero-section h-96 flex items-center justify-center text-center relative">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="container mx-auto text-center z-10 hero-text">
+            <h1>Find Your Dream Home Today</h1>
+            <p class="mt-2">Explore the best properties near you</p>
+            <div class="mt-6">
+                <input type="text" placeholder="Search properties..." class="px-4 py-2 w-96 rounded-md">
+                <button class="bg-blue-500 text-white px-6 py-2 rounded-md ml-2">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+<section class="container mx-auto px-4 py-12">
+    <h2 class="text-3xl font-semibold mb-8 text-gray-900 dark:text-white">Featured Properties</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Property 1 -->
+        <div class="bg-white shadow-lg rounded-md overflow-hidden hover:shadow-xl transition property-card dark:bg-gray-800 relative">
+            <img src="pic1.jpg" alt="Luxury Villa" class="w-full h-64 object-cover property-image">
+            <div class="p-4">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Luxury Villa</h3>
+                <p class="text-gray-600 dark:text-gray-300">Price: $500,000</p>
+                <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition contact-owner">
+                    Contact Owner
+                </button>
+            </div>
+            <!-- Call/WhatsApp Icons (Initially hidden) -->
+            <div class="icon-overlay hidden absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50">
+                <div class="space-x-8">
+                    <a href="tel:+1234567890" class="call-icon">
+                        <i class="fas fa-phone fa-2x text-white"></i> <!-- Call Now Icon -->
+                    </a>
+                    <a href="https://wa.me/1234567890" class="whatsapp-icon">
+                        <i class="fab fa-whatsapp fa-2x text-white"></i> <!-- WhatsApp Icon -->
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Property 2 -->
+        <div class="bg-white shadow-lg rounded-md overflow-hidden hover:shadow-xl transition property-card dark:bg-gray-800 relative">
+            <img src="pic2.jpg" alt="Modern Apartment" class="w-full h-64 object-cover property-image">
+            <div class="p-4">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Modern Apartment</h3>
+                <p class="text-gray-600 dark:text-gray-300">Price: $350,000</p>
+                <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition contact-owner">
+                    Contact Owner
+                </button>
+            </div>
+            <!-- Call/WhatsApp Icons (Initially hidden) -->
+            <div class="icon-overlay hidden absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50">
+                <div class="space-x-8">
+                    <a href="tel:+1234567890" class="call-icon">
+                        <i class="fas fa-phone fa-2x text-white"></i>
+                    </a>
+                    <a href="https://wa.me/1234567890" class="whatsapp-icon">
+                        <i class="fab fa-whatsapp fa-2x text-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Property 3 -->
+        <div class="bg-white shadow-lg rounded-md overflow-hidden hover:shadow-xl transition property-card dark:bg-gray-800 relative">
+            <img src="pic3.jpg" alt="Beach House" class="w-full h-64 object-cover property-image">
+            <div class="p-4">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Beach House</h3>
+                <p class="text-gray-600 dark:text-gray-300">Price: $750,000</p>
+                <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition contact-owner">
+                    Contact Owner
+                </button>
+            </div>
+            <!-- Call/WhatsApp Icons (Initially hidden) -->
+            <div class="icon-overlay hidden absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50">
+                <div class="space-x-8">
+                    <a href="tel:+1234567890" class="call-icon">
+                        <i class="fas fa-phone fa-2x text-white"></i>
+                    </a>
+                    <a href="https://wa.me/1234567890" class="whatsapp-icon">
+                        <i class="fab fa-whatsapp fa-2x text-white"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trending Properties Section -->
+<section class="container mx-auto px-4 py-12 trending-section">
+    <h2 class="text-3xl font-semibold mb-8 text-gray-900 dark:text-white">Trending Properties</h2>
+    <div id="trending-properties" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Trending properties will be populated here using JavaScript -->
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="mb-6 md:mb-0">
+                <h4 class="text-xl font-semibold mb-4">About Us</h4>
+                <p class="text-gray-400">We offer the best properties to help you find your dream home. Our platform connects buyers and sellers seamlessly.</p>
+            </div>
+            <div class="mb-6 md:mb-0">
+                <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Buy</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Rent</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Sell</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Projects</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold mb-4">Contact Us</h4>
+                <p class="text-gray-400">123 Main Street, Anytown, USA</p>
+                <p class="text-gray-400">Email: <a href="mailto:info@realestateplus.com" class="hover:text-blue-400 transition-colors duration-300">info@realestateplus.com</a></p>
+                <p class="text-gray-400">Phone: (123) 456-7890</p>
+            </div>
+        </div>
+        <div class="text-center mt-8 border-t border-gray-700 pt-4">
+            <p class="text-gray-400">&copy; 2024 RealEstatePlus. All rights reserved.</p>
+            <!-- Social Buttons -->
+            <div class="social-buttons mt-4 flex justify-center space-x-4">
+                <a href="tel:+1234567890" class="footer-btn" aria-label="Call Us">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <a href="https://wa.me/1234567890" class="footer-btn" aria-label="WhatsApp Us">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Constants
+    const DARK_MODE_CLASS = 'dark-mode';
+    const DARK_MODE_ENABLED = 'enabled';
+    const DARK_MODE_DISABLED = 'disabled';
+    const darkModeIcon = document.getElementById('dark-mode-icon');
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Function to update dark mode
+    function updateDarkMode(isEnabled) {
+        document.body.classList.toggle(DARK_MODE_CLASS, isEnabled);
+        if (isEnabled) {
+            localStorage.setItem('dark-mode', DARK_MODE_ENABLED);
+            darkModeIcon.classList.replace('fa-moon', 'fa-sun');
+            darkModeIcon.style.color = '#f39c12'; // Yellow color for sun icon
+        } else {
+            localStorage.setItem('dark-mode', DARK_MODE_DISABLED);
+            darkModeIcon.classList.replace('fa-sun', 'fa-moon');
+            darkModeIcon.style.color = '#000000'; // Black color for moon icon
+        }
+    }
+
+    // Check for saved dark mode preference
+    const isDarkModeEnabled = localStorage.getItem('dark-mode') === DARK_MODE_ENABLED;
+    updateDarkMode(isDarkModeEnabled);
+
+    // Toggle Dark Mode
+    toggleButton.addEventListener('click', function () {
+        const isDarkModeCurrentlyEnabled = document.body.classList.contains(DARK_MODE_CLASS);
+        updateDarkMode(!isDarkModeCurrentlyEnabled);
+    });
+
+    // Mobile Menu Toggle
+    mobileMenuButton.addEventListener('click', function () {
+        mobileMenu.classList.toggle('-translate-y-full');
+        mobileMenu.classList.toggle('translate-y-0');
+    });
+
+    // Function to track user interactions and store in localStorage
+    function trackUserInteraction(actionType, data) {
+        const userActions = JSON.parse(localStorage.getItem('userActions')) || [];
+
+        const action = {
+            type: actionType,
+            data: data,
+            timestamp: new Date().toISOString()
+        };
+
+        // Push the latest action and store in localStorage
+        userActions.push(action);
+        localStorage.setItem('userActions', JSON.stringify(userActions));
+    }
+
+    // Example: Track search history
+    function trackSearch(query) {
+        trackUserInteraction('search', { query });
+    }
+
+    // Example: Track when a user views a property
+    function trackPropertyView(propertyId) {
+        trackUserInteraction('view_property', { propertyId });
+    }
+
+    // Example: Track when a user interacts with a specific location
+    function trackLocationInteraction(location) {
+        trackUserInteraction('location_view', { location });
+    }
+
+    // Analyze User Data and Auto-Learn
+    function analyzeUserData() {
+        const userActions = JSON.parse(localStorage.getItem('userActions')) || [];
+        const searchFrequencies = {};
+        const pricePreferences = [];
+
+        userActions.forEach(action => {
+            if (action.type === 'search') {
+                const query = action.data.query;
+                searchFrequencies[query] = (searchFrequencies[query] || 0) + 1;
+            } else if (action.type === 'view_property') {
+                const property = trendingProperties.find(p => p.id === action.data.propertyId);
+                if (property) {
+                    pricePreferences.push(property.price);
+                }
+            }
+        });
+
+        // Return rules for learning
+        return {
+            frequentSearches: Object.keys(searchFrequencies).filter(query => searchFrequencies[query] > 1),
+            priceRange: pricePreferences.length ? pricePreferences : null
+        };
+    }
+
+    // Sample data for trending properties
+    const trendingProperties = [
+        { title: 'Charming Cottage', price: '$300,000', image: 'pic4.jpg', location: 'New York', id: 'property1' },
+        { title: 'Elegant Mansion', price: '$1,200,000', image: 'pic5.jpg', location: 'Los Angeles', id: 'property2' },
+        { title: 'Cozy Studio', price: '$200,000', image: 'pic6.jpeg', location: 'San Francisco', id: 'property3' },
+        { title: 'Modern Loft', price: '$500,000', image: 'pic7.jpeg', location: 'Chicago', id: 'property4' },
+        { title: 'Luxury Penthouse', price: '$2,000,000', image: 'pic8.jpg', location: 'Miami', id: 'property5' },
+        { title: 'Country House', price: '$800,000', image: 'pic9.jpg', location: 'Dallas', id: 'property6' },
+    ];
+
+    // Function to get user location
+    function getUserLocation() {
+        return new Promise((resolve, reject) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const { latitude, longitude } = position.coords;
+                    resolve({ latitude, longitude });
+                }, reject);
+            } else {
+                reject(new Error('Geolocation not supported'));
+            }
+        });
+    }
+
+    // Dynamic Property Display Based on User Needs
+    async function getRecommendedProperties() {
+        const userData = analyzeUserData();
+        const userSearchHistory = userData.frequentSearches || [];
+        const priceRange = userData.priceRange || [];
+        const userPreferredLocation = localStorage.getItem('preferredLocation') || '';
+
+        // Use geolocation to fetch nearby properties
+        let userLocation = '';
+        try {
+            const location = await getUserLocation();
+            userLocation = location.latitude + ', ' + location.longitude;
+            console.log('User location:', userLocation);
+        } catch (error) {
+            console.log('Geolocation failed or user denied location access');
+        }
+
+        // Filter trending properties based on user preferences
+        const recommendedProperties = trendingProperties.filter(property => {
+            return (
+                userSearchHistory.includes(property.title) ||
+                property.location.includes(userPreferredLocation) ||
+                (priceRange.length && property.price >= Math.min(...priceRange) && property.price <= Math.max(...priceRange))
+            );
+        });
+
+        return recommendedProperties.length > 0 ? recommendedProperties : trendingProperties;
+    }
+
+    // Function to display properties
+    async function displayProperties() {
+        const properties = await getRecommendedProperties();
+
+        // Display logic for the trending properties
+        properties.forEach(property => {
+            console.log(`Property: ${property.title}, Price: ${property.price}, Location: ${property.location}`);
+            // Here, you can update the DOM with property details
+
+            // Track property view interaction
+            trackPropertyView(property.id);
+        });
+    }
+
+    // Simulate storing search history in localStorage
+    function updateUserSearchHistory(searchTerm) {
+        const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+        if (!searchHistory.includes(searchTerm)) {
+            searchHistory.push(searchTerm);
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+
+            // Track the search interaction
+            trackSearch(searchTerm);
+        }
+    }
+
+    // Example usage:
+    updateUserSearchHistory('Charming Cottage'); // Simulate user search history
+    displayProperties(); // Show recommended properties
+
+    // Function to create and append property cards
+function createPropertyCard(property) {
+    const propertyCard = document.createElement('div');
+    propertyCard.className = 'bg-white shadow-lg rounded-md overflow-hidden hover:shadow-xl transition-transform duration-300 transform hover:scale-105 property-card dark:bg-gray-700 relative';
+    
+    propertyCard.innerHTML = `
+        <div class="relative">
+            <img src="${property.image}" alt="Property" class="w-full h-64 object-cover transition-transform duration-300 transform hover:scale-105">
+            <div class="absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col space-y-2 p-2 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <button class="contact-owner-btn p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none transition-transform duration-300 transform hover:scale-110">Contact Owner</button>
+                <button class="add-to-favorites-btn p-2 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none transition-transform duration-300 transform hover:scale-110">Add to Favorites</button>
+            </div>
+        </div>
+        <div class="p-4">
+            <h3 class="text-2xl font-semibold">${property.title}</h3>
+            <p class="text-gray-600 dark:text-gray-300">Price: ${property.price}</p>
+        </div>
+    `;
+
+    // Track when the user clicks on a property
+    propertyCard.addEventListener('click', function () {
+        trackPropertyView(property.id);
+    });
+
+    return propertyCard;
+}
+
+    // Add trending properties to the DOM
+    const trendingSection = document.getElementById('trending-properties');
+    trendingProperties.forEach(property => {
+        trendingSection.appendChild(createPropertyCard(property));
+    });
+
+    document.querySelectorAll('.view-details').forEach(button => {
+        button.addEventListener('click', function() {
+            const propertyCard = this.closest('.property-card');
+            const iconOverlay = propertyCard.querySelector('.icon-overlay');
+
+            // Toggle the icon overlay visibility with animation
+            iconOverlay.classList.toggle('show');
+        });
+    });
+
+});
+
+
+</script>
+
+</body>
+</html>
