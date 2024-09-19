@@ -13,19 +13,18 @@
 
 
     <style>
-        /* Dark mode styles */
-        .dark-mode {
-            background-color: #1e293b; /* Dark background */
-            color: #f1f5f9; /* Light text */
-        }
+    /* Dark mode styles */
+.dark-mode {
+    background-color: #1e293b; /* Dark background */
+    color: #f1f5f9; /* Light text */
+}
 
-        /* Smooth transition for dark mode */
-        body {
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
+/* Smooth transition for dark mode */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
 
-        /* Property card styles with dark mode */
-        /* Dark mode toggle button */
+/* Dark mode toggle button */
 .dark-mode-toggle {
     border: 2px solid #ccc; /* Light border for light mode */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
@@ -49,77 +48,104 @@
     transform: rotate(20deg); /* Slight rotation on hover */
 }
 
+/* Custom styles for the Trending Properties section */
+.dark-mode .trending-properties {
+    background-color: #1f2937; /* Dark background for the section */
+    color: #e5e7eb; /* Light text color */
+    padding: 2rem 1rem; /* Added padding for better spacing */
+}
 
-        /* Custom styles for the Trending Properties section */
-        .property-card:hover {
-            transform: translateY(-5px); /* Add a lift on hover */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow effect */
-        }
+.dark-mode .trending-properties h2 {
+    color: #e5e7eb; /* Light color for headers in dark mode */
+}
 
-        .property-card img {
-            transition: transform 0.3s ease-in-out;
-        }
+/* Optional: If you have a class for property items */
+.dark-mode .trending-properties .property-item {
+    background-color: #2d3748; /* Dark background for property items */
+    color: #e5e7eb; /* Light text color for property items */
+    border: 1px solid #374151; /* Dark border for items */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+}
 
-        .property-card:hover img {
-            transform: scale(1.1); /* Slight zoom on hover */
-        }
+.dark-mode .trending-properties .property-item:hover {
+    background-color: #374151; /* Slightly lighter dark color on hover */
+    border-color: #60a5fa; /* Accent color on hover */
+}
 
-        /* Hero Section styles */
-        .hero-section {
-            background: url('hero-bg.jpg') no-repeat center center/cover; /* Engaging background image */
-            color: #fff;
-        }
+/* Property card styles */
+.property-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
 
-        .hero-overlay {
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-        }
+.property-card:hover {
+    transform: scale(1.05);
+}
 
-        .hero-text h1 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
+.property-card img {
+    transition: transform 0.3s ease-in-out;
+}
 
-        .hero-text p {
-            font-size: 1.25rem;
-        }
+.property-card:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
 
-        @keyframes fadeInUp {
-        from {
+/* Hero Section styles */
+.hero-section {
+    background: url('hero-bg.jpg') no-repeat center center/cover; /* Engaging background image */
+    color: #fff;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+}
+
+@keyframes fadeInUp {
+    from {
         opacity: 0;
         transform: translateY(20px);
-         }
-        to {
+    }
+    to {
         opacity: 1;
         transform: translateY(0);
-        }
-        }
+    }
+}
 
-       .animate-fadeInUp {
-        animation: fadeInUp 1s ease-in-out forwards;
-        }
+.animate-fadeInUp {
+    animation: fadeInUp 1s ease-in-out forwards;
+}
 
-       .animate-delay-300 {
-       animation-delay: 300ms;
-       }
-        /* Navbar styles */
-        .navbar {
-            position: sticky;
-            top: 0;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            transition: background-color 0.3s ease;
-        }
+.animate-delay-300 {
+    animation-delay: 300ms;
+}
 
-        .navbar-dark {
-            background-color: #1f2937; /* Dark background */
-        }
+/* Navbar styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.3s ease;
+}
 
-        .navbar .nav-item:hover {
-            text-decoration: underline;
-        }
+.navbar-dark {
+    background-color: #1f2937; /* Dark background */
+}
 
-        /* Footer styles */
+.navbar .nav-item:hover {
+    text-decoration: underline;
+}
+
 /* Footer styles */
 .footer {
     background-color: #1f2937; /* Dark background for the footer */
@@ -212,16 +238,7 @@
     gap: 1rem; /* Space between buttons */
 }
 
-.property-card {
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.property-card:hover {
-    transform: scale(1.05);
-}
-
+/* Additional property card styles */
 .property-card .buttons {
     position: absolute;
     top: 0;
@@ -256,25 +273,40 @@
 }
 
 .icon-overlay {
-        opacity: 0;
-        transform: scale(0.9);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
-    .icon-overlay.show {
-        opacity: 1;
-        transform: scale(1);
-    }
+.icon-overlay.show {
+    opacity: 1;
+    transform: scale(1);
+}
 
-    .view-details {
-        cursor: pointer;
-    }
+.view-details {
+    cursor: pointer;
+}
 
-    .property-card:hover .icon-overlay {
-        opacity: 1;
-        transform: scale(1);
+.property-card:hover .icon-overlay {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
     }
-    
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
 
     </style>
 </head>
@@ -282,10 +314,10 @@
 
     <header class="navbar fixed top-0 left-0 w-full bg-white shadow-lg z-50 dark:bg-gray-900 transition-colors duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo -->
-            <div class="logo text-2xl font-bold text-gray-800 dark:text-white">
-                <img src="logo.png" alt="RealEstatePlus Logo" class="w-28" loading="lazy">
-            </div>
+           <!-- Logo -->
+<div class="logo text-2xl font-bold text-gray-800 dark:text-white transition-transform duration-300 ease-in-out transform hover:animate-bounce">
+    <img src="logo.png" alt="RealEstatePlus Logo" class="w-28" loading="lazy">
+</div>
     
             <!-- Navigation -->
             <nav class="hidden md:flex space-x-8">
@@ -332,6 +364,10 @@
         </div>
     </section>
     
+<!-- 3D Loading Spinner -->
+<div class="loading-container">
+    <div class="spinner"></div>
+</div>
 
     
 
@@ -461,7 +497,7 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+   document.addEventListener('DOMContentLoaded', function () {
     // Constants
     const DARK_MODE_CLASS = 'dark-mode';
     const DARK_MODE_ENABLED = 'enabled';
@@ -558,13 +594,14 @@
 
     // Sample data for trending properties
     const trendingProperties = [
-        { title: 'Charming Cottage', price: '$300,000', image: 'pic4.jpg', location: 'New York', id: 'property1' },
-        { title: 'Elegant Mansion', price: '$1,200,000', image: 'pic5.jpg', location: 'Los Angeles', id: 'property2' },
-        { title: 'Cozy Studio', price: '$200,000', image: 'pic6.jpeg', location: 'San Francisco', id: 'property3' },
-        { title: 'Modern Loft', price: '$500,000', image: 'pic7.jpeg', location: 'Chicago', id: 'property4' },
-        { title: 'Luxury Penthouse', price: '$2,000,000', image: 'pic8.jpg', location: 'Miami', id: 'property5' },
-        { title: 'Country House', price: '$800,000', image: 'pic9.jpg', location: 'Dallas', id: 'property6' },
-    ];
+    { title: 'Charming Cottage', price: '$300,000', image: 'pic4.jpg', location: 'New York', id: 'property1' },
+    { title: 'Elegant Mansion', price: '$1,200,000', image: 'pic5.jpg', location: 'Los Angeles', id: 'property2' },
+    { title: 'Cozy Studio', price: '$200,000', image: 'pic6.jpeg', location: 'San Francisco', id: 'property3' },
+    { title: 'Modern Loft', price: '$500,000', image: 'pic7.jpeg', location: 'Chicago', id: 'property4' },
+    { title: 'Luxury Penthouse', price: '$2,000,000', image: 'pic8.jpg', location: 'Miami', id: 'property5' },
+    { title: 'Country House', price: '$800,000', image: 'pic9.jpg', location: 'Dallas', id: 'property6' },
+];
+
 
     // Function to get user location
     function getUserLocation() {
@@ -640,31 +677,31 @@
     displayProperties(); // Show recommended properties
 
     // Function to create and append property cards
-function createPropertyCard(property) {
-    const propertyCard = document.createElement('div');
-    propertyCard.className = 'bg-white shadow-lg rounded-md overflow-hidden hover:shadow-xl transition-transform duration-300 transform hover:scale-105 property-card dark:bg-gray-700 relative';
-    
-    propertyCard.innerHTML = `
-        <div class="relative">
-            <img src="${property.image}" alt="Property" class="w-full h-64 object-cover transition-transform duration-300 transform hover:scale-105">
-            <div class="absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col space-y-2 p-2 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <button class="contact-owner-btn p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none transition-transform duration-300 transform hover:scale-110">Contact Owner</button>
-                <button class="add-to-favorites-btn p-2 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none transition-transform duration-300 transform hover:scale-110">Add to Favorites</button>
+    function createPropertyCard(property) {
+        const propertyCard = document.createElement('div');
+        propertyCard.className = 'bg-white shadow-lg rounded-md overflow-hidden hover:shadow-xl transition-transform duration-300 transform hover:scale-105 property-card dark:bg-gray-700 relative';
+        
+        propertyCard.innerHTML = `
+            <div class="relative">
+                <img src="${property.image}" alt="Property" class="w-full h-64 object-cover transition-transform duration-300 transform hover:scale-105">
+                <div class="absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col space-y-2 p-2 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <button class="contact-owner-btn p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none transition-transform duration-300 transform hover:scale-110">Contact Owner</button>
+                    <button class="add-to-favorites-btn p-2 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none transition-transform duration-300 transform hover:scale-110">Add to Favorites</button>
+                </div>
             </div>
-        </div>
-        <div class="p-4">
-            <h3 class="text-2xl font-semibold">${property.title}</h3>
-            <p class="text-gray-600 dark:text-gray-300">Price: ${property.price}</p>
-        </div>
-    `;
+            <div class="p-4">
+                <h3 class="text-2xl font-semibold">${property.title}</h3>
+                <p class="text-gray-600 dark:text-gray-300">Price: ${property.price}</p>
+            </div>
+        `;
 
-    // Track when the user clicks on a property
-    propertyCard.addEventListener('click', function () {
-        trackPropertyView(property.id);
-    });
+        // Track when the user clicks on a property
+        propertyCard.addEventListener('click', function () {
+            trackPropertyView(property.id);
+        });
 
-    return propertyCard;
-}
+        return propertyCard;
+    }
 
     // Add trending properties to the DOM
     const trendingSection = document.getElementById('trending-properties');
@@ -683,6 +720,7 @@ function createPropertyCard(property) {
     });
 
 });
+
 
 
 </script>
